@@ -1,0 +1,36 @@
+# Data — raw/interim/processed datasets are NOT committed
+data/raw/**
+data/interim/**
+data/processed/**
+!data/manifests/
+!data/raw/README.md
+
+# Secrets
+.env
+*.key
+*.pem
+*credentials*
+*token*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Model artifacts
+*.joblib
+*.pkl
+*.onnx
+models/
+
+# IDE / OS
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+.DS_Store
