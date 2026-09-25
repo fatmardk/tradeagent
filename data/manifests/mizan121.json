@@ -1,0 +1,12 @@
+{
+  "dataset_name": "mizan121",
+  "dataset_version": "",
+  "downloaded_at": "2026-09-16T20:13:17+00:00",
+  "source_url": "https://www.kaggle.com/datasets/mizan121/used-phone-dataset",
+  "license": "Unspecified (Kaggle page); provenance unverified",
+  "record_count": 5000,
+  "file_hash_sha256": "bcb422af41936ddc736f5de36b5208710efea9fd0bcc69f581069398157d80ba",
+  "original_filename": "used_phone.csv",
+  "file_size_bytes": 251854,
+  "notes": "Indian used-market rows. Condition/battery effects only; never a TRY target."
+}

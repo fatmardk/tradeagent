@@ -1,0 +1,12 @@
+{
+  "dataset_name": "recell",
+  "dataset_version": "",
+  "downloaded_at": "2026-09-16T20:13:16+00:00",
+  "source_url": "https://www.kaggle.com/datasets/ahsan81/used-handheld-device-data",
+  "license": "CC0 (Kaggle page); GitHub mirror used for file",
+  "record_count": 3571,
+  "file_hash_sha256": "bdc0c8e9aebcd283ffc8a00054a0aee2595a788838bc0c0ca3e22a8dd7f4bd24",
+  "original_filename": "used_phone_data.csv",
+  "file_size_bytes": 288334,
+  "notes": "Normalized prices (~EUR scale per community notes). used_to_new_ratio is a structural target, NOT a currency price."
+}
