@@ -47,7 +47,14 @@ body {
 }
 .repair-chip.selected { border-color: #21618c; background: #eaf2f8; }
 .repair-chip.unavailable { opacity: 0.5; cursor: not-allowed; }
-.repair-chip .cost { color: #5d6d7e; font-size: 12px; }
+.repair-chip .cost { color: #5d6d7e; font-size: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.repair-chip-body { display: flex; flex-direction: column; }
+.repair-chip-meta { color: #5d6d7e; font-size: 11px; }
+.price-badge { font-size: 10px; font-weight: 700; letter-spacing: .3px;
+  padding: 1px 5px; border-radius: 4px; background: #e8f8f0; color: #1e8449;
+  margin-left: 4px; }
+.price-badge.part { background: #fef5e7; color: #9c640c; }
+.small { font-size: 10px; }
 
 .radio-row { display: flex; gap: 16px; margin-bottom: 10px; font-size: 14px; }
 

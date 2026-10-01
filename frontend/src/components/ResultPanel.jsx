@@ -86,18 +86,30 @@ export default function ResultPanel({ data }) {
               <span className="k">
                 {q.repairType}
                 <span className="muted"> · {q.lookupMethod}</span>
+                {q.priceType && (
+                  <span className={'price-badge' +
+                    (q.priceType === 'PART_ONLY' ? ' part' : '')}>
+                    {q.priceType === 'PART_ONLY' ? 'PART ONLY' : 'FULL_REPAIR'}
+                  </span>)}
+                {q.repairQuality && (
+                  <span className="muted"> · {q.repairQuality}</span>)}
               </span>
               <span>{q.totalCost != null ? fmt(q.totalCost)
                                         : 'unavailable'}</span>
             </div>
           ))}
+          {repair.quotes.some((q) => q.priceType === 'PART_ONLY') && (
+            <div className="muted" style={{ marginTop: 6 }}>
+              PART ONLY prices exclude labor — not deducted as a
+              complete repair cost (INCOMPLETE_REPAIR_COST).</div>)}
           <div className="stat" style={{ borderTop: '1px solid #eee',
                                          marginTop: 8, paddingTop: 8 }}>
             <span className="k"><b>Expected repair cost</b></span>
             <b>{fmt(repair.expected_cost)}</b>
           </div>
           <div className="muted">Source: {repair.source_type}
-            {' · '}Samsung TR official table</div>
+            {(repair.source_types || []).length > 1 &&
+              ` (${repair.source_types.join(', ')})`}</div>
         </div>
       </div>
 
@@ -122,7 +134,7 @@ export default function ResultPanel({ data }) {
           <span className="prov-chip obs">
             Market value: {data.explanation.market_value_origin}</span>
           <span className="prov-chip kb">
-            Repair: OFFICIAL_REPAIR_DATA
+            Repair: {data.repair?.source_type || 'n/a'}
             ({(data.explanation.repair_lookup_methods || []).join(', ')
               || 'n/a'})</span>
           <span className="prov-chip biz">
