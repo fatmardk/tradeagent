@@ -34,3 +34,14 @@ models/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Java build artifacts
+backend/target/
+
+# Frontend build artifacts
+frontend/dist/
+frontend/node_modules/
+
+# Generated repair artifacts (regenerable from data/repair sources + pipeline)
+data/repair/kb.json
+data/repair/coverage_report.csv
