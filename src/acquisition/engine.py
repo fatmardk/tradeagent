@@ -45,9 +45,19 @@ def compute_acquisition(market_value_block: dict,
         return AcquisitionResult(None, {}, {},
                                  ["no market value — cannot price"])
 
-    known = [q for q in repair_quotes if q.total_cost is not None]
+    known = [q for q in repair_quotes
+             if q.total_cost is not None
+             and getattr(q, "price_type", "FULL_REPAIR") != "PART_ONLY"]
+    part_only = [q for q in repair_quotes
+                 if q.total_cost is not None
+                 and getattr(q, "price_type", None) == "PART_ONLY"]
     unknown = [q for q in repair_quotes if q.total_cost is None]
     repair_cost = float(sum(q.total_cost for q in known))
+    for q in part_only:
+        warnings.append(
+            f"{q.repair_type}: INCOMPLETE_REPAIR_COST — part-only price "
+            f"{q.total_cost:,.0f} TRY exists but labor is not included; "
+            "not subtracted as a complete repair cost")
     for q in unknown:
         warnings.append(f"{q.repair_type}: NO_REPAIR_DATA — cost excluded, "
                         "acquisition price is optimistic")
@@ -71,6 +81,11 @@ def compute_acquisition(market_value_block: dict,
         "repair_cost_source": sorted({q.source_id for q in known
                                       if q.source_id}) or None,
         "repair_lookup_methods": [q.lookup_method for q in repair_quotes],
+        "repair_quote_status": {q.repair_type: getattr(q, "quote_status", None)
+                                for q in repair_quotes},
+        "repairs_part_only": [
+            {"repair_type": q.repair_type, "part_price": q.total_cost,
+             "source_id": q.source_id} for q in part_only] or None,
         "repairs_without_data": [q.repair_type for q in unknown] or None,
         "profit_target": "BUSINESS_INPUT",
         "operational_cost_source": "BUSINESS_INPUT",

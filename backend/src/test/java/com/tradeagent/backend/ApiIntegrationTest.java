@@ -128,7 +128,7 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$.quotes[0].lookupMethod",
                         is("SERIES_LEVEL_LOOKUP")))
                 .andExpect(jsonPath("$.quotes[0].totalCost",
-                        closeTo(3100.0, 0.01)));
+                        closeTo(3150.0, 0.01)));
     }
 
     @Test
@@ -158,6 +158,57 @@ class ApiIntegrationTest {
                         is("INVALID_REPAIR_TYPE")));
     }
 
+    // ---------- multi-brand repair KB ----------
+
+    @Test
+    void repairAppleExactLookup() throws Exception {
+        mvc.perform(get("/api/repair-costs")
+                        .param("repairType", "screen_module")
+                        .param("modelName", "iPhone 13"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.quotes[0].lookupMethod",
+                        is("EXACT_REPAIR_LOOKUP")))
+                .andExpect(jsonPath("$.quotes[0].priceType",
+                        is("FULL_REPAIR")))
+                .andExpect(jsonPath("$.quotes[0].sourceType",
+                        is("INDEPENDENT_REPAIR_SERVICE")))
+                .andExpect(jsonPath("$.quotes[0].totalCost",
+                        greaterThan(0.0)));
+    }
+
+    @Test
+    void repairProvenancePrefersAuthorized() throws Exception {
+        // SM-S911 has AUTHORIZED (samsung_tr) + INDEPENDENT (tp) rows;
+        // AUTHORIZED must win -> 9900 samsung_tr_support.
+        mvc.perform(get("/api/repair-costs")
+                        .param("repairType", "screen_module")
+                        .param("modelCode", "SM-S911"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.quotes[0].totalCost",
+                        closeTo(9900.0, 0.01)))
+                .andExpect(jsonPath("$.quotes[0].sourceType",
+                        is("AUTHORIZED_SERVICE")))
+                .andExpect(jsonPath("$.quotes[0].sourceId",
+                        is("samsung_tr_support")));
+    }
+
+    @Test
+    void repairQuotesExposeNewFields() throws Exception {
+        mvc.perform(get("/api/repair-costs")
+                        .param("repairType", "battery")
+                        .param("modelName", "Galaxy S23"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.quotes[0].priceType",
+                        is("FULL_REPAIR")))
+                .andExpect(jsonPath("$.quotes[0].includesLabor",
+                        is(true)))
+                .andExpect(jsonPath("$.quotes[0].quoteStatus", is("OK")))
+                .andExpect(jsonPath("$.quotes[0].repairQuality",
+                        notNullValue()))
+                .andExpect(jsonPath("$.quotes[0].alternates",
+                        notNullValue()));
+    }
+
     // ---------- /api/acquisition/quote ----------
 
     @Test
@@ -176,7 +227,7 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$.repair.expected_cost",
                         closeTo(9900.0, 0.01)))
                 .andExpect(jsonPath("$.repair.source_type",
-                        is("OFFICIAL_REPAIR_DATA")))
+                        is("AUTHORIZED_SERVICE")))
                 .andExpect(jsonPath("$.business.source_type",
                         is("BUSINESS_INPUT")))
                 .andExpect(jsonPath("$.explanation.market_value_origin",
@@ -219,15 +270,33 @@ class ApiIntegrationTest {
                  "modelName":"unknown","series":"Q"}""";
         // series Q has no KB rows -> NO_REPAIR_DATA warning path:
         // use a repair type that exists but model series missing
+        // iPhone 16e has no frame observation in the KB -> NO_REPAIR_DATA
+        // (battery now exists as PART_ONLY — checked separately)
         String body2 = """
                 {"brand":"Apple","model":"iPhone 16e","storageGb":128,
-                 "requiredRepairs":["battery"],"operationalCost":500}""";
+                 "requiredRepairs":["frame"],"operationalCost":500}""";
         mvc.perform(post("/api/acquisition/quote")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(body2))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.explanation.repairs_without_data",
-                        hasItem("battery")));
+                        hasItem("frame")));
+
+        // PART_ONLY must NOT be deducted as a complete repair cost:
+        // iPhone 16e battery is part-only (ErCorp) -> warning + no deduction
+        String body3 = """
+                {"brand":"Apple","model":"iPhone 16e","storageGb":128,
+                 "requiredRepairs":["battery"],"operationalCost":500}""";
+        mvc.perform(post("/api/acquisition/quote")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body3))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.repair.expected_cost",
+                        closeTo(0.0, 0.01)))
+                .andExpect(jsonPath("$.explanation.repair_quote_status.battery",
+                        is("INCOMPLETE_REPAIR_COST")))
+                .andExpect(jsonPath("$.explanation.repairs_part_only[0].part_price",
+                        greaterThan(0.0)));
     }
 
     // ---------- invalid input ----------

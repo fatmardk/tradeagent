@@ -46,12 +46,22 @@ public class AcquisitionService {
                 repairTypes, modelCode, model, series);
 
         List<String> warnings = new ArrayList<>();
+        // FULL_REPAIR is the only type treated as a complete repair cost.
         List<RepairQuote> known = quotes.stream()
-                .filter(q -> q.totalCost() != null).toList();
+                .filter(q -> q.totalCost() != null && !q.isPartOnly())
+                .toList();
+        List<RepairQuote> partOnly = quotes.stream()
+                .filter(q -> q.totalCost() != null && q.isPartOnly())
+                .toList();
         List<RepairQuote> unknown = quotes.stream()
                 .filter(q -> q.totalCost() == null).toList();
         double repairCost = known.stream()
                 .mapToDouble(RepairQuote::totalCost).sum();
+        partOnly.forEach(q -> warnings.add(q.repairType()
+                + ": INCOMPLETE_REPAIR_COST — part-only price "
+                + q.totalCost()
+                + " TRY exists but labor is not included; "
+                + "not subtracted as a complete repair cost"));
         unknown.forEach(q -> warnings.add(q.repairType()
                 + ": NO_REPAIR_DATA — cost excluded, acquisition price"
                 + " is optimistic"));
@@ -86,6 +96,16 @@ public class AcquisitionService {
                         .filter(Objects::nonNull).distinct().sorted().toList());
         explanation.put("repair_lookup_methods",
                 quotes.stream().map(RepairQuote::lookupMethod).toList());
+        Map<String, String> quoteStatus = new LinkedHashMap<>();
+        quotes.forEach(q -> quoteStatus.put(q.repairType(),
+                q.quoteStatus()));
+        explanation.put("repair_quote_status", quoteStatus);
+        explanation.put("repairs_part_only",
+                partOnly.stream().map(q -> Map.of(
+                        "repair_type", q.repairType(),
+                        "part_price", q.totalCost(),
+                        "source_id",
+                        q.sourceId() == null ? "" : q.sourceId())).toList());
         explanation.put("repairs_without_data",
                 unknown.stream().map(RepairQuote::repairType).toList());
         explanation.put("profit_target", SourceType.BUSINESS_INPUT.name());
@@ -109,7 +129,11 @@ public class AcquisitionService {
                 Map.of("required_repairs", repairTypes,
                         "quotes", quotes,
                         "expected_cost", repairCost,
-                        "source_type", SourceType.OFFICIAL_REPAIR_DATA.name()),
+                        "source_type", repairSourceType(known, partOnly),
+                        "source_types", quotes.stream()
+                                .map(RepairQuote::sourceType)
+                                .filter(Objects::nonNull).distinct().sorted()
+                                .toList()),
                 Map.of("operational_cost", rules.operationalCost(),
                         "risk_buffer", rules.riskBuffer(),
                         "required_profit", profit,
@@ -121,6 +145,19 @@ public class AcquisitionService {
                         "components", components,
                         "currency", "TRY"),
                 explanation, warnings);
+    }
+
+    /** Distinct repair source provenance label for the repair block. */
+    private static String repairSourceType(List<RepairQuote> known,
+                                           List<RepairQuote> partOnly) {
+        var types = java.util.stream.Stream
+                .concat(known.stream(), partOnly.stream())
+                .map(RepairQuote::sourceType).filter(Objects::nonNull)
+                .distinct().sorted().toList();
+        if (types.isEmpty()) {
+            return "REPAIR_DATA_UNAVAILABLE";
+        }
+        return types.size() == 1 ? types.get(0) : "MIXED_REPAIR_SOURCES";
     }
 
     private static double round2(double x) {

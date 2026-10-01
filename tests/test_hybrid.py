@@ -95,7 +95,8 @@ def test_repair_exact_lookup(kb):
 def test_repair_series_lookup(kb):
     q = kb.quote("battery", series="S")
     assert q.lookup_method == "SERIES_LEVEL_LOOKUP"
-    assert q.total_cost == 3100.0
+    # battery series price moved 3.100 -> 3.150 on the 2026-09-29 page
+    assert q.total_cost == 3150.0
 
 
 def test_repair_no_data_never_fabricates(kb):

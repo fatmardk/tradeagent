@@ -4,7 +4,7 @@ The backend consumes *canonical analytical outputs* only — never raw
 scrape files. Two artifacts:
 
   data/export/market_snapshot.json  <- market_snapshot_combined.parquet
-  data/export/repair_kb.json        <- repair_cost_observation.parquet
+  data/export/repair_kb.json        <- repair_cost_observation_multibrand.parquet
 
 Re-run after any snapshot rebuild, before starting the backend.
 """
@@ -23,9 +23,13 @@ MARKET_COLS = ["observed_date", "canonical_variant", "grade_segment",
                "n_offers", "n_sellers", "n_sources",
                "price_median", "price_q25", "price_q75",
                "price_min", "price_max", "snapshot_id"]
-REPAIR_COLS = ["repair_type", "device_id", "model_name", "series",
+REPAIR_COLS = ["repair_type", "device_id", "model_name", "model_code",
+               "model_key", "series", "brand", "variant",
                "total_repair_cost", "part_type", "part_quality",
-               "currency", "source_id", "source_url", "observed_at",
+               "repair_price_type", "includes_labor",
+               "repair_quality", "source_quality_label",
+               "currency", "source_id", "source_name", "source_type",
+               "source_url", "source_reference", "observed_at",
                "notes"]
 
 
@@ -42,7 +46,7 @@ def export() -> dict:
     market = pd.read_parquet(
         ROOT / "data/processed/market_snapshot_combined.parquet")
     repair = pd.read_parquet(
-        ROOT / "data/processed/repair_cost_observation.parquet")
+        ROOT / "data/processed/repair_cost_observation_multibrand.parquet")
     for path, df, cols in [
             (OUT_DIR / "market_snapshot.json", market, MARKET_COLS),
             (OUT_DIR / "repair_kb.json", repair, REPAIR_COLS)]:
