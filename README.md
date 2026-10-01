@@ -1,7 +1,9 @@
 # TradeAgent
 
 Used/refurbished smartphone **valuation and acquisition-decision engine** for the
-Turkish market. Phase 1A scope: data foundation only — no ML model, no backend.
+Turkish market. The validated Hybrid Market Valuation Engine v1
+(freeze-ready, see `docs/s3-validation-report.md`) is exposed through a
+Spring Boot REST API in `backend/` — see `backend/README.md`.
 
 ## What this project estimates (long-term)
 
