@@ -19,7 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-RAW = ROOT / "data/raw/tr_observations/samsung_repair_tr_2026-09-25.txt"
+RAW = ROOT / "data/repair/samsung_repair_tr_2026-09-29.txt"
 OUT = ROOT / "data/processed/repair_cost_observation.parquet"
 CSV = ROOT / "data/raw/tr_observations/repair_cost_observation_2026.csv"
 SOURCE_URL = "https://www.samsung.com/tr/support/ekran-degisimi-fiyat-bilgisi/"

@@ -6,7 +6,7 @@ from src.ingestion import repair_kb
 
 def test_parse_real_raw_file():
     recs = []
-    text = open("data/raw/tr_observations/samsung_repair_tr_2026-09-25.txt",
+    text = open("data/repair/samsung_repair_tr_2026-09-29.txt",
                 encoding="utf-8").read()
     lines = text.splitlines()
     series, buf, in_battery = None, [], False
@@ -41,7 +41,9 @@ def test_parse_table_layout(tmp_path):
 
 def test_repair_kb_output_integrity():
     df = pd.read_parquet("data/processed/repair_cost_observation.parquet")
-    assert len(df) == 172
+    # live page snapshot 2026-09-29: 147 rows (was 172 on 2026-09-25 —
+    # Samsung added/removed models and dropped the frame-eco column)
+    assert len(df) == 147
     assert set(df.series) <= {"S", "Z", "A", "M", "Note"}
     assert df.total_repair_cost.gt(0).all()
     assert (df.currency == "TRY").all()

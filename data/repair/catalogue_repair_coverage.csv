@@ -1,0 +1,266 @@
+canonical_brand,canonical_model,canonical_variants,has_full_repair,full_repair_types,part_only_only,no_repair_data
+Apple,iPhone 11,3,True,5,False,False
+Apple,iPhone 11 Pro,3,True,5,False,False
+Apple,iPhone 11 Pro Max,3,True,5,False,False
+Apple,iPhone 12,3,True,5,False,False
+Apple,iPhone 12 Mini,3,True,5,False,False
+Apple,iPhone 12 Pro,3,True,5,False,False
+Apple,iPhone 12 Pro Max,3,True,5,False,False
+Apple,iPhone 13,3,True,5,False,False
+Apple,iPhone 13 Mini,3,True,4,False,False
+Apple,iPhone 13 Pro,4,True,4,False,False
+Apple,iPhone 13 Pro Max,4,True,4,False,False
+Apple,iPhone 14,3,True,5,False,False
+Apple,iPhone 14 Plus,2,True,5,False,False
+Apple,iPhone 14 Pro,4,True,5,False,False
+Apple,iPhone 14 Pro Max,4,True,5,False,False
+Apple,iPhone 15,2,True,5,False,False
+Apple,iPhone 15 Plus,3,True,5,False,False
+Apple,iPhone 15 Pro,4,True,5,False,False
+Apple,iPhone 15 Pro Max,3,True,5,False,False
+Apple,iPhone 16,3,True,5,False,False
+Apple,iPhone 16 Plus,2,True,6,False,False
+Apple,iPhone 16 Pro,4,True,6,False,False
+Apple,iPhone 16 Pro Max,3,True,6,False,False
+Apple,iPhone 17,1,True,6,False,False
+Apple,iPhone 17 Pro,1,True,6,False,False
+Apple,iPhone 17 Pro Max,3,True,6,False,False
+Apple,iPhone 6,1,False,0,False,True
+Apple,iPhone 7,1,True,3,False,False
+Apple,iPhone 7 Plus,2,True,5,False,False
+Apple,iPhone 8,1,True,3,False,False
+Apple,iPhone 8 Plus,3,True,6,False,False
+Apple,iPhone Air,2,False,0,False,True
+Apple,iPhone SE 2020,1,True,6,False,False
+Apple,iPhone SE 2022,3,False,0,False,True
+Apple,iPhone X,1,True,3,False,False
+Apple,iPhone XR,2,True,3,False,False
+Apple,iPhone XS Max,1,True,3,False,False
+Casper,VIA F20,1,False,0,False,True
+General Mobile,GM 20,1,False,0,False,True
+General Mobile,GM 20 Pro,1,False,0,False,True
+General Mobile,GM 22S,1,False,0,False,True
+Honor,400,1,False,0,False,True
+Honor,400 Pro,1,False,0,False,True
+Honor,Honor 200 Pro,1,False,0,False,True
+Honor,Magic 6 Pro,1,False,0,False,True
+Honor,Magic 7 Pro,1,False,0,False,True
+Honor,Magic V2,1,False,0,False,True
+Honor,Magic V3,1,False,0,False,True
+Huawei,Mate 10 Lite,1,False,0,False,True
+Huawei,Mate 20 Lite,1,False,0,False,True
+Huawei,Nova 10 SE,1,False,0,False,True
+Huawei,Nova 9,1,False,0,False,True
+Huawei,Nova 9 SE,1,False,0,False,True
+Huawei,P Smart 2019,1,False,0,False,True
+Huawei,P Smart 2021,1,False,0,False,True
+Huawei,P20 Lite,1,False,0,False,True
+Huawei,P30 Lite,1,False,0,False,True
+Huawei,P40 Lite,1,False,0,False,True
+Huawei,P60 Pro,1,False,0,False,True
+Huawei,Pura 70,1,False,0,False,True
+Huawei,Pura 70 Ultra,1,False,0,False,True
+Huawei,Y5 2019,1,False,0,False,True
+Huawei,Y6 S,1,False,0,False,True
+Huawei,Y7 (2019),1,False,0,False,True
+Infinix,Hot 30i,1,False,0,False,True
+Omix,Omix X700,1,False,0,False,True
+Omix,X400,1,False,0,False,True
+Omix,X5,1,False,0,False,True
+Omix,X500,1,False,0,False,True
+Omix,X6,1,False,0,False,True
+Omix,X600,1,False,0,False,True
+Oneplus,Nord N10 5G,1,False,0,False,True
+Oppo,A15s,1,True,1,False,False
+Oppo,A16,1,True,1,False,False
+Oppo,A31,1,True,1,False,False
+Oppo,A38,1,True,1,False,False
+Oppo,A5 2020,1,True,2,False,False
+Oppo,A52,1,True,1,False,False
+Oppo,A55,1,False,0,False,True
+Oppo,A72,1,True,1,False,False
+Oppo,A73,1,True,2,False,False
+Oppo,A74,1,False,0,False,True
+Oppo,AX7,1,True,1,False,False
+Oppo,Reno 4 Lite,1,False,0,False,True
+Oppo,Reno 5 Lite,1,True,2,False,False
+Oppo,Reno Z,1,False,0,False,True
+Oppo,Reno14 5G,1,False,0,False,True
+Poco,C40,1,False,0,False,True
+Poco,F3,1,False,0,False,True
+Poco,F5 Pro,1,False,0,False,True
+Poco,F6 Pro,1,False,0,False,True
+Poco,Poco C65,1,False,0,False,True
+Poco,X4 GT 5G,1,False,0,False,True
+Poco,X4 Pro 5G,1,False,0,False,True
+Poco,X5 Pro 5G,1,False,0,False,True
+Poco,X6 Pro,1,False,0,False,True
+Realme,10,1,True,1,False,False
+Realme,11,1,True,2,False,False
+Realme,11 Pro 5G,1,True,1,False,False
+Realme,11 Pro Plus,1,False,0,False,True
+Realme,12 Pro 5G,1,True,1,False,False
+Realme,12 Pro Plus 5G,1,False,0,False,True
+Realme,C 25,1,True,2,False,False
+Realme,C 25S,1,True,2,False,False
+Realme,C 53,1,True,2,False,False
+Realme,C21,1,True,2,False,False
+Realme,C21 Y,1,True,2,False,False
+Realme,C55,1,True,2,False,False
+Realme,C61,1,True,1,False,False
+Realme,C65,1,True,2,False,False
+Realme,GT2,1,False,0,False,True
+Samsung,Galaxy A03,1,True,1,False,False
+Samsung,Galaxy A04,2,True,1,False,False
+Samsung,Galaxy A04s,2,True,1,False,False
+Samsung,Galaxy A05,2,True,1,False,False
+Samsung,Galaxy A06,1,False,0,False,True
+Samsung,Galaxy A10S,1,True,1,False,False
+Samsung,Galaxy A11,1,True,1,False,False
+Samsung,Galaxy A12,1,True,2,False,False
+Samsung,Galaxy A13,2,True,2,False,False
+Samsung,Galaxy A14,2,True,2,False,False
+Samsung,Galaxy A15,1,True,2,False,False
+Samsung,Galaxy A16,2,True,2,False,False
+Samsung,Galaxy A20,1,True,2,False,False
+Samsung,Galaxy A20S,1,True,2,False,False
+Samsung,Galaxy A21s,1,True,2,False,False
+Samsung,Galaxy A23,1,True,3,False,False
+Samsung,Galaxy A25 5G,1,True,3,False,False
+Samsung,Galaxy A26 5G,1,True,3,False,False
+Samsung,Galaxy A30,1,True,2,False,False
+Samsung,Galaxy A31,1,True,2,False,False
+Samsung,Galaxy A32,1,True,3,False,False
+Samsung,Galaxy A34,2,True,5,False,False
+Samsung,Galaxy A35,2,True,4,False,False
+Samsung,Galaxy A36 5G,2,True,3,False,False
+Samsung,Galaxy A51,2,True,4,False,False
+Samsung,Galaxy A52,1,True,4,False,False
+Samsung,Galaxy A53,1,True,4,False,False
+Samsung,Galaxy A54,2,True,5,False,False
+Samsung,Galaxy A55,2,True,7,False,False
+Samsung,Galaxy A56 5G,2,True,7,False,False
+Samsung,Galaxy A7 (2018),1,True,5,False,False
+Samsung,Galaxy A72,1,True,5,False,False
+Samsung,Galaxy A73,1,True,5,False,False
+Samsung,Galaxy J6 Plus,1,False,0,False,True
+Samsung,Galaxy J7 Pro,1,False,0,False,True
+Samsung,Galaxy M11,1,True,1,False,False
+Samsung,Galaxy M12,2,True,2,False,False
+Samsung,Galaxy M13,1,True,2,False,False
+Samsung,Galaxy M20,1,True,2,False,False
+Samsung,Galaxy M30s,1,True,2,False,False
+Samsung,Galaxy M31,1,True,2,False,False
+Samsung,Galaxy M34,1,True,2,False,False
+Samsung,Galaxy Note 10,1,False,0,False,True
+Samsung,Galaxy Note 10 Lite,1,False,0,False,True
+Samsung,Galaxy Note 10 Plus,1,False,0,False,True
+Samsung,Galaxy Note 20,1,True,1,False,False
+Samsung,Galaxy Note 20 Ultra,1,True,1,False,False
+Samsung,Galaxy Note 8,1,False,0,False,True
+Samsung,Galaxy Note 9,1,False,0,False,True
+Samsung,Galaxy S10,1,True,4,False,False
+Samsung,Galaxy S20,1,True,4,False,False
+Samsung,Galaxy S20 FE,1,True,4,False,False
+Samsung,Galaxy S20 Plus,1,True,4,False,False
+Samsung,Galaxy S21,1,True,5,False,False
+Samsung,Galaxy S21 FE 5G,2,True,4,False,False
+Samsung,Galaxy S21 Ultra 5G,1,True,5,False,False
+Samsung,Galaxy S22,1,True,4,False,False
+Samsung,Galaxy S22 5G,1,False,0,False,True
+Samsung,Galaxy S22 Pembe,1,False,0,False,True
+Samsung,Galaxy S22 Plus 5G,2,True,3,False,False
+Samsung,Galaxy S22 Ultra 5G,2,True,4,False,False
+Samsung,Galaxy S23,1,True,5,False,False
+Samsung,Galaxy S23 FE,2,True,5,False,False
+Samsung,Galaxy S23 Plus,1,True,3,False,False
+Samsung,Galaxy S23 Ultra,2,True,5,False,False
+Samsung,Galaxy S24,2,True,5,False,False
+Samsung,Galaxy S24 FE,1,True,5,False,False
+Samsung,Galaxy S24 Plus,1,True,3,False,False
+Samsung,Galaxy S24 Ultra,3,True,5,False,False
+Samsung,Galaxy S25,2,True,6,False,False
+Samsung,Galaxy S25 Edge,2,True,4,False,False
+Samsung,Galaxy S25 FE,1,True,6,False,False
+Samsung,Galaxy S25 Plus,1,True,4,False,False
+Samsung,Galaxy S25 Ultra 5G,3,True,6,False,False
+Samsung,Galaxy S8 Plus,1,True,4,False,False
+Samsung,Galaxy XCover7,1,False,0,False,True
+Samsung,Galaxy Z Flip 3,1,True,6,False,False
+Samsung,Galaxy Z Flip4,1,True,5,False,False
+Samsung,Galaxy Z Flip5,1,True,6,False,False
+Samsung,Galaxy Z Flip6,2,True,6,False,False
+Samsung,Galaxy Z Flip7,2,True,6,False,False
+Samsung,Galaxy Z Flip7 FE,1,True,3,False,False
+Samsung,Galaxy Z Fold4,1,True,6,False,False
+Samsung,Galaxy Z Fold5,2,True,6,False,False
+Samsung,Galaxy Z Fold6,3,True,6,False,False
+Samsung,Galaxy Z Fold7,3,True,6,False,False
+Tecno,Camon 18,1,False,0,False,True
+Tecno,Camon 19,1,False,0,False,True
+Tecno,Camon 20,1,False,0,False,True
+Tecno,Camon 20 Pro,1,False,0,False,True
+Tecno,Camon 20 Pro 5G,1,False,0,False,True
+Tecno,Camon 30,1,False,0,False,True
+Tecno,Camon 40,1,False,0,False,True
+Tecno,Pova 3,1,False,0,False,True
+Tecno,Spark 10 Pro,1,False,0,False,True
+Tecno,Spark 20C,1,False,0,False,True
+Tecno,Spark 40C,1,False,0,False,True
+Tecno,Spark 7 Pro,1,False,0,False,True
+Tecno,Spark Go 2023,1,False,0,False,True
+Tecno,Spark Go 2024,1,False,0,False,True
+Tecno,Spark Slim 5G,1,False,0,False,True
+Vivo,V29,1,False,0,False,True
+Vivo,V29 Lite 5G,1,False,0,False,True
+Vivo,V50 Lite,1,False,0,False,True
+Vivo,X200 Pro,1,False,0,False,True
+Vivo,Y16,2,False,0,False,True
+Vivo,Y17S,1,False,0,False,True
+Vivo,Y19s,1,False,0,False,True
+Vivo,Y21,1,False,0,False,True
+Vivo,Y21s,1,False,0,False,True
+Vivo,Y28,1,False,0,False,True
+Vivo,Y29,1,False,0,False,True
+Vivo,Y51,1,False,0,False,True
+Vivo,Y53s,1,False,0,False,True
+Xiaomi,12T,1,True,5,False,False
+Xiaomi,13,1,True,4,False,False
+Xiaomi,13 Lite,2,True,4,False,False
+Xiaomi,13T,1,True,4,False,False
+Xiaomi,14,1,True,3,False,False
+Xiaomi,14 Ultra,1,True,4,False,False
+Xiaomi,14T Pro,3,True,3,False,False
+Xiaomi,Mi 10T,1,True,2,False,False
+Xiaomi,Mi 11 Lite,1,True,5,False,False
+Xiaomi,Mi A2 Lite,1,False,0,False,True
+Xiaomi,Mi A3,1,False,0,False,True
+Xiaomi,Mi Note 10 Lite,2,True,3,False,False
+Xiaomi,Redmi 10 2022,2,True,3,False,False
+Xiaomi,Redmi 12,1,True,5,False,False
+Xiaomi,Redmi 12C,1,True,5,False,False
+Xiaomi,Redmi 13,1,True,5,False,False
+Xiaomi,Redmi 13C,2,True,5,False,False
+Xiaomi,Redmi 14C,1,True,3,False,False
+Xiaomi,Redmi 8,1,False,0,False,True
+Xiaomi,Redmi 8A,1,False,0,False,True
+Xiaomi,Redmi 9,1,True,2,False,False
+Xiaomi,Redmi 9C,3,True,2,False,False
+Xiaomi,Redmi 9T,2,True,2,False,False
+Xiaomi,Redmi Note 10,2,True,4,False,False
+Xiaomi,Redmi Note 10 Pro,1,True,4,False,False
+Xiaomi,Redmi Note 10S,1,True,4,False,False
+Xiaomi,Redmi Note 11,2,True,5,False,False
+Xiaomi,Redmi Note 11 Pro,1,True,5,False,False
+Xiaomi,Redmi Note 12 Pro 5G,1,True,5,False,False
+Xiaomi,Redmi Note 13,1,True,4,False,False
+Xiaomi,Redmi Note 13 Pro,1,False,0,False,True
+Xiaomi,Redmi Note 13 Pro Plus 5G,2,True,5,False,False
+Xiaomi,Redmi Note 14,1,True,3,False,False
+Xiaomi,Redmi Note 14 Pro,1,True,3,False,False
+Xiaomi,Redmi Note 14 Pro Plus 5G,1,True,3,False,False
+Xiaomi,Redmi Note 8,1,False,0,False,True
+Xiaomi,Redmi Note 8 Pro,2,False,0,False,True
+Xiaomi,Redmi Note 9,2,True,3,False,False
+Xiaomi,Redmi Note 9 Pro,2,True,3,False,False
+Xiaomi,Redmi Note 9S,1,True,3,False,False
